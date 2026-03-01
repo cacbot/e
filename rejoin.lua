@@ -4,35 +4,48 @@ local RunService = game:GetService("RunService")
 local LocalPlayer = Players.LocalPlayer
 
 local PlaceId = game.PlaceId
-local RejoinDelay = 1 
+local RejoinDelay = 1
+local isRejoining = false
 
 local function AttemptRejoin()
-    print("Attempting to rejoin...")
-    
+    if isRejoining then return end
+    isRejoining = true
+
     local success, err = pcall(function()
         TeleportService:Teleport(PlaceId, LocalPlayer)
     end)
 
     if not success then
         warn("Rejoin failed: " .. tostring(err))
-    else
-        print("Rejoin command sent successfully.")
+    end
+
+    task.wait(RejoinDelay)
+    isRejoining = false
+end
+
+local function OnPlayerRemoving(player)
+    if player == LocalPlayer then
+        print("Player removed. Rejoining...")
+        AttemptRejoin()
     end
 end
 
-Players.PlayerRemoving:Connect(function(player)
-    if player == LocalPlayer then
-        print("Player removed from server. Rejoining...")
-        task.wait(RejoinDelay)
+local function OnHeartbeat()
+    if LocalPlayer and LocalPlayer.Parent then return end
+    if not isRejoining then
+        print("Heartbeat detected disconnect. Rejoining...")
         AttemptRejoin()
     end
-end)
+end
 
-RunService.Heartbeat:Connect(function()
-    if not LocalPlayer or not LocalPlayer.Parent then
-        print("Heartbeat detected disconnection. Rejoining...")
-        AttemptRejoin()
-    end
-end)
-
-print("Auto-Rejoin Script Loaded. Monitoring active.")
+if LocalPlayer then
+    Players.PlayerRemoving:Connect(OnPlayerRemoving)
+    RunService.Heartbeat:Connect(OnHeartbeat)
+    print("Script loaded.")
+else
+    spawn(function()
+        while not LocalPlayer do task.wait() end
+        Players.PlayerRemoving:Connect(OnPlayerRemoving)
+        RunService.Heartbeat:Connect(OnHeartbeat)
+    end)
+end
