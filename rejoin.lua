@@ -1,51 +1,127 @@
 local Players = game:GetService("Players")
 local TeleportService = game:GetService("TeleportService")
 local RunService = game:GetService("RunService")
+local StarterGui = game:GetService("StarterGui")
+
 local LocalPlayer = Players.LocalPlayer
+local placeId = game.PlaceId
 
-local PlaceId = game.PlaceId
-local RejoinDelay = 1
+local REJOIN_DELAY = 1.8
+local MAX_ATTEMPTS = 5
+
+local attemptCount = 0
 local isRejoining = false
+local connectionLost = false
 
-local function AttemptRejoin()
-    if isRejoining then return end
+local function notify(message, color)
+    color = color or Color3.fromRGB(220, 220, 100)
+    pcall(function()
+        StarterGui:SetCore("SendNotification", {
+            Title = "Rejoin",
+            Text = message,
+            Duration = 6,
+            Icon = ""
+        })
+    end)
+    warn("[Rejoin] " .. message)
+end
+
+local function canAttemptRejoin()
+    if isRejoining then
+        return false
+    end
+    if attemptCount >= MAX_ATTEMPTS then
+        notify("Max rejoin attempts reached (" .. MAX_ATTEMPTS .. "). Stopping.", Color3.fromRGB(255, 80, 80))
+        return false
+    end
+    return true
+end
+
+local function tryRejoin()
+    if not canAttemptRejoin() then
+        return
+    end
+
     isRejoining = true
+    attemptCount = attemptCount + 1
 
-    local success, err = pcall(function()
-        TeleportService:Teleport(PlaceId, LocalPlayer)
+    notify("Rejoining... (" .. attemptCount .. "/" .. MAX_ATTEMPTS .. ")")
+
+    local success, errorMessage = pcall(function()
+        TeleportService:Teleport(placeId, LocalPlayer)
     end)
 
     if not success then
-        warn("Rejoin failed: " .. tostring(err))
+        notify("Teleport failed: " .. tostring(errorMessage), Color3.fromRGB(255, 100, 100))
+        task.delay(2, function()
+            isRejoining = false
+        end)
+    end
+end
+
+local function onPlayerRemoving(player)
+    if player ~= LocalPlayer then
+        return
+    end
+    if connectionLost then
+        return
     end
 
-    task.wait(RejoinDelay)
+    connectionLost = true
+    print("[Rejoin] LocalPlayer removed → attempting rejoin")
+    tryRejoin()
+end
+
+local function onHeartbeat()
+    if LocalPlayer and not LocalPlayer.Parent then
+        if connectionLost then
+            return
+        end
+
+        connectionLost = true
+        print("[Rejoin] LocalPlayer.Parent became nil → attempting rejoin")
+        tryRejoin()
+    end
+end
+
+local function init()
+    if not LocalPlayer then
+        notify("LocalPlayer not found yet...", Color3.fromRGB(200, 200, 255))
+        return false
+    end
+
     isRejoining = false
-end
+    connectionLost = false
+    attemptCount = 0
 
-local function OnPlayerRemoving(player)
-    if player == LocalPlayer then
-        print("Player removed. Rejoining...")
-        AttemptRejoin()
-    end
-end
+    local conn1 = Players.PlayerRemoving:Connect(onPlayerRemoving)
+    local conn2 = RunService.Heartbeat:Connect(onHeartbeat)
 
-local function OnHeartbeat()
-    if LocalPlayer and LocalPlayer.Parent then return end
-    if not isRejoining then
-        print("Heartbeat detected disconnect. Rejoining...")
-        AttemptRejoin()
-    end
+    script.Destroying:Connect(function()
+        pcall(function()
+            conn1:Disconnect()
+            conn2:Disconnect()
+        end)
+    end)
+
+    notify("Rejoin script active (Place " .. placeId .. ")", Color3.fromRGB(100, 220, 120))
+    return true
 end
 
 if LocalPlayer then
-    Players.PlayerRemoving:Connect(OnPlayerRemoving)
-    RunService.Heartbeat:Connect(OnHeartbeat)
-    print("Script loaded.")
+    init()
 else
-    spawn(function()
-        while not LocalPlayer do task.wait() end
-        Players.PlayerRemoving:Connect(OnPlayerRemoving)
-        RunService.Heartbeat:Connect(OnHeartbeat)
+    task.spawn(function()
+        local timeout = 0
+        while not LocalPlayer and timeout < 12 do
+            task.wait(0.3)
+            timeout = timeout + 0.3
+        end
+
+        if LocalPlayer then
+            init()
+        else
+            notify("Could not find LocalPlayer after waiting. Giving up.", Color3.fromRGB(255, 100, 100))
+        end
     end)
 end
