@@ -9,7 +9,7 @@ local PlaceId = game.PlaceId
 
 local isRejoining = false
 local attempt = 0
-local MAX_ATTEMPTS = 5
+local MAX_ATTEMPTS = 25
 
 local function notify(title, text)
     pcall(function()
