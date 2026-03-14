@@ -1,160 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Buy Your Executor - Premium Access</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buy Isaeva</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: linear-gradient(to bottom, #0a0a15, #0f0f1f);
-      color: #e5e5ff;
+      margin: 0;
+      background: #0b0b14;
+      color: #d9d9ff;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.5;
+    }
+
+    .wrapper {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 40px 20px;
     }
-    .container {
-      max-width: 900px;
-      width: 100%;
+
+    header {
       text-align: center;
+      margin-bottom: 80px;
     }
+
     h1 {
-      font-size: 4rem;
+      font-size: 3.8rem;
       font-weight: 700;
-      background: linear-gradient(90deg, #c084fc, #8b5cf6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 16px;
-      letter-spacing: -1px;
+      margin: 0 0 0.2em;
+      letter-spacing: -0.04em;
+      color: #ffffff;
     }
-    .tagline {
-      font-size: 1.8rem;
+
+    .tag {
+      font-size: 1.9rem;
       font-weight: 600;
-      color: #d1d5ff;
-      margin-bottom: 8px;
+      color: #c9b8ff;
+      margin-bottom: 0.4em;
     }
-    .subtitle {
-      font-size: 1.3rem;
-      color: #a5a5ff;
-      margin-bottom: 60px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .plan-card {
-      background: rgba(20, 20, 50, 0.5);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(139, 92, 246, 0.25);
-      border-radius: 24px;
-      padding: 48px 40px;
-      max-width: 420px;
+
+    .sub {
+      font-size: 1.25rem;
+      color: #a0a0cc;
+      max-width: 620px;
       margin: 0 auto;
-      transition: all 0.4s ease;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
     }
-    .plan-card:hover {
-      transform: translateY(-12px);
-      border-color: #a78bfa;
-      box-shadow: 0 20px 60px rgba(139, 92, 246, 0.25);
+
+    .card {
+      background: #12121e;
+      border: 1px solid #2a2344;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 420px;
+      padding: 48px 36px;
+      transition: border-color 0.25s ease;
     }
-    .plan-name {
-      font-size: 2.5rem;
+
+    .card:hover {
+      border-color: #7a5af5;
+    }
+
+    .plan-title {
+      font-size: 2.1rem;
       font-weight: 700;
+      margin-bottom: 0.6em;
       color: #e0e0ff;
-      margin-bottom: 16px;
     }
+
+    .price-box {
+      margin-bottom: 2.2em;
+    }
+
     .price {
-      font-size: 4.5rem;
+      font-size: 4.2rem;
       font-weight: 700;
-      color: #c084fc;
-      margin-bottom: 8px;
+      color: #b089ff;
       line-height: 1;
+      display: inline-block;
     }
-    .duration {
-      font-size: 1.4rem;
-      color: #b0b0e8;
-      margin-bottom: 40px;
-    }
-    .features {
-      list-style: none;
-      text-align: left;
-      margin-bottom: 48px;
-    }
-    .features li {
-      font-size: 1.15rem;
-      margin: 18px 0;
-      position: relative;
-      padding-left: 32px;
-      color: #d8d8ff;
-    }
-    .features li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: #a78bfa;
-      font-size: 1.4rem;
-      line-height: 1;
-    }
-    .btn {
+
+    .period {
+      font-size: 1.3rem;
+      color: #b0b0e0;
       display: block;
-      background: linear-gradient(90deg, #8b5cf6, #c084fc);
-      color: white;
+      margin-top: 0.2em;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2.8em;
+      text-align: left;
+    }
+
+    li {
+      font-size: 1.1rem;
+      margin: 1em 0;
+      color: #d0d0ff;
+    }
+
+    li:before {
+      content: "•";
+      color: #9f7aea;
+      margin-right: 0.6em;
       font-size: 1.4rem;
+      line-height: 0;
+      vertical-align: middle;
+    }
+
+    .buy-btn {
+      display: block;
+      width: 100%;
+      padding: 18px;
+      background: #6d48e5;
+      color: white;
+      font-size: 1.25rem;
       font-weight: 600;
-      padding: 18px 60px;
-      border-radius: 999px;
+      text-align: center;
       text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+      border-radius: 10px;
+      transition: background 0.2s ease, transform 0.1s ease;
     }
-    .btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 15px 40px rgba(139, 92, 246, 0.6);
+
+    .buy-btn:hover {
+      background: #7c55f0;
+      transform: translateY(-2px);
     }
+
     footer {
       margin-top: 100px;
-      color: #7070a0;
-      font-size: 0.95rem;
+      color: #606080;
+      font-size: 0.9rem;
+      text-align: center;
     }
-    @media (max-width: 640px) {
+
+    @media (max-width: 500px) {
       h1 { font-size: 3rem; }
-      .price { font-size: 3.8rem; }
-      .plan-card { padding: 40px 28px; }
+      .tag { font-size: 1.6rem; }
+      .price { font-size: 3.4rem; }
+      .card { padding: 40px 28px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>Your Executor</h1>
-    <div class="tagline">Unleash Power. Stay Invisible.</div>
-    <div class="subtitle">Premium execution. Stable. Undetectable. Get full access now.</div>
+  <div class="wrapper">
 
-    <div class="plan-card">
-      <div class="plan-name">Amateur</div>
-      <div class="price">$4.99</div>
-      <div class="duration">per week</div>
-      <ul class="features">
+    <header>
+      <h1>Your Executor</h1>
+      <div class="tag">Unleash Power. Stay Invisible.</div>
+      <p class="sub">Stable. Fast. Undetectable. Full access starting now.</p>
+    </header>
+
+    <div class="card">
+      <div class="plan-title">Amateur</div>
+
+      <div class="price-box">
+        <div class="price">$4.99</div>
+        <div class="period">per week</div>
+      </div>
+
+      <ul>
         <li>Supports every feature</li>
         <li>Premium performance</li>
         <li>Fast execution speed</li>
         <li>Minimal injection speed</li>
         <li>Clients Manager</li>
       </ul>
-      <a href="https://hotdogkeyz.mysellauth.com/product/isaeva" class="btn">Purchase Now</a>
+
+      <a href="https://hotdogkeyz.mysellauth.com/product/isaeva" class="buy-btn">Purchase</a>
     </div>
+
   </div>
 
-  <footer>
-    © 2026 Isaeva. All rights reserved.
-  </footer>
+  <footer>© 2026 Isaeva — All rights reserved.</footer>
 
 </body>
 </html>
