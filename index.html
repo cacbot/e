@@ -3,183 +3,273 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Buy Isaeva</title>
+  <title>Get Isaeva</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #0a0a0f;
+      --card: #111118;
+      --accent: #a855f7;
+      --text: #e5e5ff;
+      --subtext: #a0a0cc;
+      --border: #2a2a44;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      margin: 0;
-      background: #0b0b14;
-      color: #d9d9ff;
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      line-height: 1.5;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.6;
     }
-
-    .wrapper {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-    }
-
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    
     header {
       text-align: center;
-      margin-bottom: 80px;
+      padding: 120px 0 80px;
     }
-
+    .badge {
+      display: inline-block;
+      background: rgba(168, 85, 247, 0.15);
+      color: var(--accent);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+      border: 1px solid rgba(168, 85, 247, 0.3);
+    }
     h1 {
       font-size: 3.8rem;
       font-weight: 700;
-      margin: 0 0 0.2em;
-      letter-spacing: -0.04em;
-      color: #ffffff;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
     }
-
-    .tag {
-      font-size: 1.9rem;
-      font-weight: 600;
-      color: #c9b8ff;
-      margin-bottom: 0.4em;
-    }
-
     .sub {
-      font-size: 1.25rem;
-      color: #a0a0cc;
-      max-width: 620px;
-      margin: 0 auto;
-    }
-
-    .card {
-      background: #12121e;
-      border: 1px solid #2a2344;
-      border-radius: 16px;
-      width: 100%;
-      max-width: 420px;
-      padding: 48px 36px;
-      transition: border-color 0.25s ease;
-    }
-
-    .card:hover {
-      border-color: #7a5af5;
-    }
-
-    .plan-title {
-      font-size: 2.1rem;
-      font-weight: 700;
-      margin-bottom: 0.6em;
-      color: #e0e0ff;
-    }
-
-    .price-box {
-      margin-bottom: 2.2em;
-    }
-
-    .price {
-      font-size: 4.2rem;
-      font-weight: 700;
-      color: #b089ff;
-      line-height: 1;
-      display: inline-block;
-    }
-
-    .period {
       font-size: 1.3rem;
-      color: #b0b0e0;
-      display: block;
-      margin-top: 0.2em;
+      color: var(--subtext);
+      max-width: 720px;
+      margin: 0 auto 48px;
     }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 2.8em;
-      text-align: left;
+    .actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
-
-    li {
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
       font-size: 1.1rem;
-      margin: 1em 0;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+    .btn-primary:hover { background: #9333ea; }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+    }
+    .btn-outline:hover { background: rgba(168,85,247,0.1); }
+
+    .pricing {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 120px;
+    }
+    .plan {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 32px;
+      transition: border-color 0.3s;
+      max-width: 420px;
+      width: 100%;
+    }
+    .plan:hover { border-color: var(--accent); }
+    .plan h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: white;
+    }
+    .price {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 8px 0;
+    }
+    .period {
+      font-size: 1.15rem;
+      color: var(--subtext);
+      margin-bottom: 24px;
+    }
+    .desc {
+      font-size: 1rem;
+      color: var(--subtext);
+      margin-bottom: 28px;
+    }
+    .features {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+    .features li {
+      margin: 12px 0;
       color: #d0d0ff;
     }
-
-    li:before {
+    .features li:before {
       content: "•";
-      color: #9f7aea;
-      margin-right: 0.6em;
-      font-size: 1.4rem;
-      line-height: 0;
-      vertical-align: middle;
+      color: var(--accent);
+      margin-right: 8px;
     }
 
-    .buy-btn {
-      display: block;
-      width: 100%;
-      padding: 18px;
-      background: #6d48e5;
-      color: white;
-      font-size: 1.25rem;
-      font-weight: 600;
+    .benefits {
+      padding: 80px 0;
+      background: rgba(0,0,0,0.3);
+    }
+    .benefits h2 {
       text-align: center;
-      text-decoration: none;
-      border-radius: 10px;
-      transition: background 0.2s ease, transform 0.1s ease;
+      font-size: 2.8rem;
+      margin-bottom: 60px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .benefit-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      text-align: center;
+    }
+    .icon {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      color: var(--accent);
+    }
+    .benefit-card h4 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+    .benefit-card p {
+      color: var(--subtext);
+      font-size: 0.98rem;
     }
 
-    .buy-btn:hover {
-      background: #7c55f0;
-      transform: translateY(-2px);
+    .cta {
+      text-align: center;
+      padding: 100px 0 80px;
+    }
+    .cta h2 {
+      font-size: 2.6rem;
+      margin-bottom: 24px;
+    }
+    .cta p {
+      font-size: 1.2rem;
+      color: var(--subtext);
+      max-width: 680px;
+      margin: 0 auto 40px;
     }
 
     footer {
-      margin-top: 100px;
-      color: #606080;
-      font-size: 0.9rem;
       text-align: center;
+      padding: 40px 0;
+      color: #606080;
+      font-size: 0.95rem;
+      border-top: 1px solid var(--border);
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 768px) {
       h1 { font-size: 3rem; }
-      .tag { font-size: 1.6rem; }
-      .price { font-size: 3.4rem; }
-      .card { padding: 40px 28px; }
+      .pricing { display: block; }
     }
   </style>
 </head>
 <body>
 
-  <div class="wrapper">
+  <header class="container">
+    <div class="badge">PREMIUM EXECUTION ENGINE</div>
+    <h1>Unleash Power.<br>Stay Invisible.</h1>
+    <p class="sub">
+      Whether you're just starting or dominating the scene, Isaeva delivers unmatched dominance. 
+      Outpace Hyperion with the most elite, undetectable execution engine available.
+    </p>
+    <div class="actions">
+      <a href="https://hotdogkeyz.mysellauth.com/product/isaeva" class="btn btn-primary">Get Isaeva Now</a>
+      <a href="https://discord.gg/GSt3rwUkzB" class="btn btn-outline">Discord</a>
+    </div>
+  </header>
 
-    <header>
-      <h1>Your Executor</h1>
-      <div class="tag">Unleash Power. Stay Invisible.</div>
-      <p class="sub">Stable. Fast. Undetectable. Full access starting now.</p>
-    </header>
-
-    <div class="card">
-      <div class="plan-title">Amateur</div>
-
-      <div class="price-box">
-        <div class="price">$4.99</div>
-        <div class="period">per week</div>
-      </div>
-
-      <ul>
+  <section class="container pricing">
+    <div class="plan">
+      <h3>AMATEUR</h3>
+      <div class="price">$4.99</div>
+      <div class="period">per week</div>
+      <div class="desc">Full unrestricted access — 7 days of pure power</div>
+      <ul class="features">
         <li>Supports every feature</li>
         <li>Premium performance</li>
         <li>Fast execution speed</li>
         <li>Minimal injection speed</li>
         <li>Clients Manager</li>
       </ul>
-
-      <a href="https://hotdogkeyz.mysellauth.com/product/isaeva" class="buy-btn">Purchase</a>
+      <a href="https://hotdogkeyz.mysellauth.com/product/isaeva" class="btn btn-primary" style="width:100%; text-align:center; padding:14px;">Purchase</a>
     </div>
+  </section>
 
-  </div>
+  <section class="benefits">
+    <div class="container">
+      <h2>Why Isaeva</h2>
+      <div class="grid">
+        <div class="benefit-card">
+          <div class="icon">📜</div>
+          <h4>100% UNC & sUNC</h4>
+          <p>Full sUNC and UNC support — all functions enabled without overhead or compromise.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="icon">⚡</div>
+          <h4>FPS Boost</h4>
+          <p>Hyperion emulation minimizes detection overhead, resulting in noticeably smoother gameplay.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="icon">🔔</div>
+          <h4>24/7 Support</h4>
+          <p>Active staff on Discord around the clock. No issue goes unresolved.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="icon">ℹ️</div>
+          <h4>Hyperion Emulation</h4>
+          <p>Isaeva accurately mirrors Hyperion’s behavior, preventing detection of any unauthorized changes.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="icon">≡</div>
+          <h4>Clean Interface</h4>
+          <p>Designed for all experience levels. Intuitive navigation, zero friction from launch to execution.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <footer>© 2026 Isaeva — All rights reserved.</footer>
+  <section class="cta">
+    <div class="container">
+      <h2>Ready to dominate?</h2>
+      <p>Join thousands of exploiters already using Isaeva. Get support, updates, and community access in one place.</p>
+      <a href="https://discord.gg/GSt3rwUkzB" class="btn btn-primary">Join the Isaeva Community</a>
+    </div>
+  </section>
+
+  <footer>
+    Getisaeva.xyz © 2026 Getisaeva.xyz
+  </footer>
 
 </body>
 </html>
