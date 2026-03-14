@@ -1,275 +1,652 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Get Isaeva</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0a0a0f;
-      --card: #111118;
-      --accent: #a855f7;
-      --text: #e5e5ff;
-      --subtext: #a0a0cc;
-      --border: #2a2a44;
-    }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', system-ui, sans-serif;
-      line-height: 1.6;
-    }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    
-    header {
-      text-align: center;
-      padding: 120px 0 80px;
-    }
-    .badge {
-      display: inline-block;
-      background: rgba(168, 85, 247, 0.15);
-      color: var(--accent);
-      font-size: 0.95rem;
-      font-weight: 600;
-      padding: 6px 16px;
-      border-radius: 999px;
-      margin-bottom: 24px;
-      border: 1px solid rgba(168, 85, 247, 0.3);
-    }
-    h1 {
-      font-size: 3.8rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
-    }
-    .sub {
-      font-size: 1.3rem;
-      color: var(--subtext);
-      max-width: 720px;
-      margin: 0 auto 48px;
-    }
-    .actions {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .btn {
-      display: inline-block;
-      padding: 14px 32px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: all 0.2s;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-    }
-    .btn-primary:hover { background: #9333ea; }
-    .btn-outline {
-      background: transparent;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-    }
-    .btn-outline:hover { background: rgba(168,85,247,0.1); }
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="Getisaeva.vercel.app - Premium Execution Environment.">
+    <meta name="theme-color" content="#111113">
+    <title>Unleash Power. Stay Invisible</title>
 
-    .pricing {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 120px;
-    }
-    .plan {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 40px 32px;
-      transition: border-color 0.3s;
-      max-width: 420px;
-      width: 100%;
-    }
-    .plan:hover { border-color: var(--accent); }
-    .plan h3 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: white;
-    }
-    .price {
-      font-size: 3.5rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin: 8px 0;
-    }
-    .period {
-      font-size: 1.15rem;
-      color: var(--subtext);
-      margin-bottom: 24px;
-    }
-    .desc {
-      font-size: 1rem;
-      color: var(--subtext);
-      margin-bottom: 28px;
-    }
-    .features {
-      list-style: none;
-      margin-bottom: 32px;
-    }
-    .features li {
-      margin: 12px 0;
-      color: #d0d0ff;
-    }
-    .features li:before {
-      content: "•";
-      color: var(--accent);
-      margin-right: 8px;
-    }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    .benefits {
-      padding: 80px 0;
-      background: rgba(0,0,0,0.3);
-    }
-    .benefits h2 {
-      text-align: center;
-      font-size: 2.8rem;
-      margin-bottom: 60px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-    .benefit-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 28px;
-      text-align: center;
-    }
-    .icon {
-      font-size: 2.5rem;
-      margin-bottom: 16px;
-      color: var(--accent);
-    }
-    .benefit-card h4 {
-      font-size: 1.4rem;
-      margin-bottom: 12px;
-    }
-    .benefit-card p {
-      color: var(--subtext);
-      font-size: 0.98rem;
-    }
+    <style>
+        :root {
+            --bg-void: #111113;
+            --bg-surface: #161618;
+            --aurora-low: rgba(139, 32, 48, 0.14);
+            --aurora-mid: rgba(100, 20, 32, 0.09);
+            --text-main: #f0ecec;
+            --text-muted: #7a7478;
+            --text-sub: #565254;
+            --crimson-obsidian: #2a080c;
+            --crimson-blood: #8B2030;
+            --crimson-mid: #a02438;
+            --crimson-glow: rgba(139, 32, 48, 0.45);
+            --footer-bg: #0d0d0f;
+            --card-glass: rgba(18, 14, 15, 0.9);
+            --card-border: rgba(139, 32, 48, 0.2);
+            --h1-size: clamp(2.2rem, 5.5vw, 4.8rem);
+            --h2-size: clamp(1.6rem, 3.8vw, 3.2rem);
+            --ease-snappy: cubic-bezier(0.15, 1, 0.3, 1);
+            --scroll-track: #111113;
+            --scroll-thumb: #2a2a2e;
+        }
 
-    .cta {
-      text-align: center;
-      padding: 100px 0 80px;
-    }
-    .cta h2 {
-      font-size: 2.6rem;
-      margin-bottom: 24px;
-    }
-    .cta p {
-      font-size: 1.2rem;
-      color: var(--subtext);
-      max-width: 680px;
-      margin: 0 auto 40px;
-    }
+        html {
+            scrollbar-width: thin;
+            scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+            scroll-behavior: smooth;
+        }
+        ::-webkit-scrollbar { width: 5px; background: var(--scroll-track); }
+        ::-webkit-scrollbar-thumb { background: var(--scroll-thumb); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3a3a3e; }
 
-    footer {
-      text-align: center;
-      padding: 40px 0;
-      color: #606080;
-      font-size: 0.95rem;
-      border-top: 1px solid var(--border);
-    }
+        *, *::before, *::after {
+            box-sizing: border-box; margin: 0; padding: 0;
+            font: inherit; border: none;
+            -webkit-font-smoothing: antialiased;
+            text-decoration: none; color: inherit; list-style: none;
+        }
 
-    @media (max-width: 768px) {
-      h1 { font-size: 3rem; }
-      .pricing { display: block; }
-    }
-  </style>
+        html, body {
+            font-family: 'DM Sans', system-ui, sans-serif;
+            background: var(--bg-void);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        ::selection { background: var(--crimson-blood); color: white; }
+
+        @keyframes revealUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes drift {
+            0%   { opacity: 0.25; transform: scale(1) translate(0, 0); }
+            50%  { opacity: 0.45; transform: scale(1.04) translate(12px, -12px); }
+            100% { opacity: 0.25; transform: scale(1) translate(0, 0); }
+        }
+
+        .env { position: fixed; inset: 0; z-index: -10; pointer-events: none;
+               background: radial-gradient(circle at 50% 40%, #1a1416 0%, var(--bg-void) 75%); }
+        .wash-1 { position: fixed; bottom: -10%; left: 0; width: 120vw; height: 90vh;
+                  background: radial-gradient(ellipse at center, var(--aurora-low), transparent 65%);
+                  filter: blur(110px); z-index: -5; animation: drift 22s ease-in-out infinite alternate; }
+        .wash-2 { position: fixed; top: -5%; right: -5%; width: 75vw; height: 75vh;
+                  background: radial-gradient(ellipse at center, var(--aurora-mid), transparent 70%);
+                  filter: blur(130px); z-index: -5; animation: drift 30s linear infinite alternate-reverse; }
+        #bgCanvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+                    z-index: -4; opacity: 0.25; mix-blend-mode: screen; pointer-events: none; }
+
+        .page {
+            width: 100%;
+            max-width: 100vw;
+            display: flex; flex-direction: column; align-items: center;
+            position: relative; z-index: 10;
+        }
+
+        /* NAV */
+        .top-nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            height: 52px;
+            background: rgba(13, 11, 12, 0.75);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(139, 32, 48, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            animation: revealUp 0.7s var(--ease-snappy) both;
+        }
+        .nav-left {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-sub);
+        }
+        .nav-left span { color: #c0404e; }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .nav-link {
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+            transition: all 0.22s var(--ease-snappy);
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .nav-link:hover {
+            background: rgba(255,255,255,0.05);
+            color: var(--text-main);
+        }
+        .nav-link.nav-cta {
+            background: linear-gradient(150deg, rgba(139,32,48,0.25) 0%, rgba(80,16,26,0.3) 100%);
+            border: 1px solid rgba(139, 32, 48, 0.3);
+            color: #d4b0b5;
+            font-weight: 600;
+        }
+        .nav-link.nav-cta:hover {
+            background: linear-gradient(150deg, #8B2030 0%, #6a1826 100%);
+            border-color: rgba(139, 32, 48, 0.6);
+            color: #fff;
+        }
+        .nav-sep { width: 1px; height: 18px; background: rgba(255,255,255,0.07); margin: 0 6px; }
+        @media (max-width: 600px) {
+            .top-nav { padding: 0 16px; }
+            .nav-left { display: none; }
+            .nav-link { padding: 6px 10px; font-size: 0.75rem; }
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            max-width: 920px;
+            padding: 15vh 24px 0;
+            animation: revealUp 1.1s var(--ease-snappy) 0.1s both;
+            width: 100%;
+        }
+        .label-tag {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: rgba(139, 32, 48, 0.1);
+            border: 1px solid rgba(139, 32, 48, 0.22);
+            color: #c44050; padding: 5px 14px;
+            border-radius: 50px; font-size: 0.72rem;
+            font-weight: 600; letter-spacing: 0.09em;
+            text-transform: uppercase; margin-bottom: 26px;
+        }
+        .label-tag::before {
+            content: '';
+            width: 5px; height: 5px; border-radius: 50%;
+            background: #c44050; box-shadow: 0 0 7px #c44050;
+        }
+        .h-title {
+            font-size: var(--h1-size); font-weight: 700; line-height: 1.06;
+            letter-spacing: -0.05em; margin-bottom: 20px;
+            color: #f5f0f0;
+        }
+        .h-desc {
+            color: var(--text-muted); font-size: clamp(0.92rem, 1.35vw, 1.05rem);
+            max-width: 600px; margin: 0 auto; line-height: 1.7;
+        }
+
+        /* CTA */
+        .cta-row {
+            display: flex; align-items: center; justify-content: center;
+            flex-wrap: wrap; gap: 12px;
+            margin-top: 44px; margin-bottom: 80px;
+            animation: revealUp 1.2s var(--ease-snappy) 0.18s both;
+            padding: 0 16px;
+        }
+        .btn {
+            padding: 12px 30px; border-radius: 8px;
+            font-weight: 600; font-size: 0.88rem;
+            letter-spacing: 0.018em;
+            transition: all 0.28s var(--ease-snappy);
+            display: inline-flex; align-items: center; gap: 7px;
+            cursor: pointer; white-space: nowrap;
+            text-decoration: none;
+        }
+        .btn-primary {
+            background: linear-gradient(150deg, #8B2030 0%, #5c1420 100%);
+            border: 1px solid rgba(139, 32, 48, 0.5);
+            box-shadow: 0 4px 18px rgba(139, 32, 48, 0.25), inset 0 1px 0 rgba(255,255,255,0.06);
+            color: #f5e8ea;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(150deg, #a02438 0%, #701a28 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(139, 32, 48, 0.4), inset 0 1px 0 rgba(255,255,255,0.08);
+            border-color: rgba(160, 36, 56, 0.7);
+        }
+        .btn-ghost {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.07);
+            color: var(--text-muted);
+        }
+        .btn-ghost:hover {
+            border-color: rgba(255,255,255,0.14);
+            color: #bbb;
+            transform: translateY(-2px);
+            background: rgba(255,255,255,0.05);
+        }
+        .divider { width: 1px; height: 22px; background: rgba(255,255,255,0.06); }
+
+        /* PRICING — single card centered */
+        .pricing-section {
+            width: 100%; max-width: 400px; padding: 0 20px;
+            animation: revealUp 1.3s var(--ease-snappy) 0.2s both;
+            margin-bottom: 100px;
+        }
+        .price-card {
+            background: var(--card-glass);
+            border: 1px solid var(--card-border);
+            border-radius: 16px; padding: 34px 26px;
+            display: flex; flex-direction: column;
+            transition: all 0.4s var(--ease-snappy);
+            position: relative; overflow: hidden;
+        }
+        .price-card::before {
+            content: ''; position: absolute; top: 0; left: 0;
+            right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(139, 32, 48, 0.35), transparent);
+        }
+        .price-card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(139, 32, 48, 0.4);
+            box-shadow: 0 16px 50px rgba(0,0,0,0.6), 0 0 30px rgba(139, 32, 48, 0.12);
+        }
+        .tier-name {
+            color: var(--text-sub); font-size: 0.72rem; font-weight: 600;
+            letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px;
+            font-family: 'DM Mono', monospace;
+        }
+        .tier-price {
+            font-size: 2.5rem; font-weight: 700; line-height: 1;
+            margin-bottom: 5px; letter-spacing: -0.04em;
+        }
+        .tier-period { color: var(--text-sub); font-size: 0.8rem; margin-bottom: 10px; }
+        .tier-desc {
+            color: var(--text-muted); font-size: 0.86rem; margin-bottom: 26px;
+            padding-bottom: 22px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .buy-btn {
+            background: linear-gradient(150deg, rgba(139, 32, 48, 0.25) 0%, rgba(80, 16, 26, 0.3) 100%);
+            border: 1px solid rgba(139, 32, 48, 0.3);
+            color: #d4b0b5; padding: 12px;
+            border-radius: 9px; font-weight: 600;
+            font-size: 0.87rem; text-align: center;
+            transition: all 0.28s var(--ease-snappy); margin-bottom: 26px;
+            cursor: pointer; display: block; text-decoration: none;
+            width: 100%; font-family: 'DM Sans', system-ui, sans-serif;
+        }
+        .buy-btn:hover {
+            background: linear-gradient(150deg, #8B2030 0%, #6a1826 100%);
+            border-color: rgba(139, 32, 48, 0.6);
+            color: #fff;
+            box-shadow: 0 6px 20px rgba(139, 32, 48, 0.3);
+        }
+        .feat-list { display: flex; flex-direction: column; gap: 10px; }
+        .feat-item {
+            display: flex; align-items: flex-start; gap: 10px;
+            font-size: 0.86rem; color: #908a8b; line-height: 1.4;
+        }
+        .feat-item svg { width: 13px; height: 13px; color: #8B2030; flex-shrink: 0; margin-top: 2px; }
+
+        /* FEATURES */
+        .features-section {
+            width: 100%; max-width: 1050px; padding: 0 20px;
+            text-align: center;
+            animation: revealUp 1.4s var(--ease-snappy) 0.25s both;
+            margin-bottom: 80px;
+        }
+        .section-label {
+            display: inline-block;
+            color: var(--text-sub); font-size: 0.7rem;
+            font-weight: 600; letter-spacing: 0.14em;
+            text-transform: uppercase; margin-bottom: 14px;
+            font-family: 'DM Mono', monospace;
+        }
+        .feat-h2 {
+            font-size: var(--h2-size); font-weight: 700;
+            letter-spacing: -0.04em; margin-bottom: 12px;
+            line-height: 1.1;
+        }
+        .feat-sub {
+            color: var(--text-muted); font-size: 0.96rem;
+            max-width: 480px; margin: 0 auto 48px auto;
+            line-height: 1.65;
+        }
+        .grid-container {
+            display: flex; flex-wrap: wrap; gap: 13px;
+            justify-content: center;
+        }
+        .grid-container .feature-node {
+            flex: 1 1 calc(33.33% - 14px); min-width: 220px; max-width: calc(33.33% - 10px);
+        }
+        .feature-node {
+            background: rgba(14, 10, 11, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.035);
+            padding: 32px 26px 28px; border-radius: 14px;
+            transition: all 0.4s var(--ease-snappy);
+            text-align: left; position: relative; overflow: hidden;
+        }
+        .feature-node::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(139, 32, 48, 0.2), transparent);
+            transition: opacity 0.3s; opacity: 0;
+        }
+        .feature-node:hover::before { opacity: 1; }
+        .feature-node:hover {
+            background: rgba(18, 12, 13, 0.85);
+            border-color: rgba(139, 32, 48, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 14px 40px rgba(0,0,0,0.5);
+        }
+        .f-icon-box {
+            width: 38px; height: 38px;
+            background: rgba(139, 32, 48, 0.1);
+            border-radius: 9px;
+            border: 1px solid rgba(139, 32, 48, 0.18);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 18px; transition: all 0.35s ease;
+        }
+        .feature-node:hover .f-icon-box {
+            background: rgba(139, 32, 48, 0.22);
+            border-color: rgba(139, 32, 48, 0.4);
+        }
+        .f-icon-box svg { width: 18px; height: 18px; color: #8B2030; }
+        .f-title { font-size: 0.98rem; font-weight: 600; margin-bottom: 9px; color: #e0d8d9; }
+        .f-text { color: #6a6465; font-size: 0.86rem; line-height: 1.6; }
+
+        /* DISCORD CTA */
+        .discord-section {
+            width: 100%; max-width: 680px; padding: 50px 24px 70px;
+            text-align: center;
+            animation: revealUp 1.4s var(--ease-snappy) 0.28s both;
+        }
+        .discord-h2 {
+            font-size: clamp(1.5rem, 3.2vw, 2.4rem); font-weight: 700;
+            letter-spacing: -0.04em; margin-bottom: 14px; line-height: 1.15;
+        }
+        .discord-p {
+            color: var(--text-muted); font-size: 0.96rem;
+            margin: 0 auto 32px; line-height: 1.65;
+        }
+        .join-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: rgba(20, 16, 17, 0.9);
+            border: 1px solid rgba(255,255,255,0.07);
+            color: #ccc; padding: 14px 36px;
+            border-radius: 10px; font-weight: 600;
+            font-size: 0.93rem; letter-spacing: 0.01em;
+            transition: all 0.35s var(--ease-snappy);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+            cursor: pointer; text-decoration: none;
+        }
+        .join-btn:hover {
+            transform: translateY(-4px);
+            background: var(--crimson-blood);
+            border-color: rgba(139, 32, 48, 0.6);
+            color: white;
+            box-shadow: 0 12px 34px var(--crimson-glow);
+        }
+        .join-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+        /* FOOTER */
+        .terminal-footer {
+            width: 100%; background: var(--footer-bg);
+            border-top: 1px solid rgba(139, 32, 48, 0.18);
+            padding: 28px 24px;
+            display: flex; align-items: center; justify-content: space-between;
+            position: relative; z-index: 10;
+            flex-wrap: wrap; gap: 10px;
+        }
+        .footer-brand {
+            font-size: 1rem; font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-muted);
+        }
+        .footer-right {
+            display: flex; align-items: center; gap: 18px;
+        }
+        .footer-legal {
+            color: var(--text-sub); font-size: 0.75rem;
+            font-family: 'DM Mono', monospace;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .grid-container .feature-node {
+                flex: 1 1 calc(50% - 14px);
+                max-width: calc(50% - 7px);
+            }
+        }
+        @media (max-width: 640px) {
+            .hero { padding: 12vh 18px 0; }
+            .cta-row { flex-direction: column; gap: 10px; }
+            .divider { display: none; }
+            .btn { width: 100%; max-width: 300px; justify-content: center; }
+            .pricing-section { padding: 0 16px; max-width: 100%; }
+            .price-card { padding: 28px 20px; }
+            .tier-price { font-size: 2.2rem; }
+            .features-section { padding: 0 16px; }
+            .grid-container .feature-node {
+                flex: 1 1 100%;
+                max-width: 100%;
+                min-width: unset;
+            }
+            .discord-section { padding: 40px 16px 60px; }
+            .join-btn { padding: 13px 28px; font-size: 0.88rem; width: 100%; max-width: 300px; justify-content: center; }
+            .terminal-footer { justify-content: center; text-align: center; padding: 22px 16px; }
+            .footer-right { flex-direction: column; gap: 8px; }
+        }
+        @media (max-width: 380px) {
+            .h-title { letter-spacing: -0.04em; }
+            .price-card { padding: 24px 16px; }
+        }
+    </style>
 </head>
 <body>
 
-  <header class="container">
-    <div class="badge">PREMIUM EXECUTION ENGINE</div>
-    <h1>Unleash Power.<br>Stay Invisible.</h1>
-    <p class="sub">
-      Whether you're just starting or dominating the scene, Isaeva delivers unmatched dominance. 
-      Outpace Hyperion with the most elite, undetectable execution engine available.
-    </p>
-    <div class="actions">
-      <a href="https://hotdogkeyz.mysellauth.com/product/isaeva" class="btn btn-primary">Get Isaeva Now</a>
-      <a href="https://discord.gg/GSt3rwUkzB" class="btn btn-outline">Discord</a>
-    </div>
-  </header>
+    <div class="env"></div>
+    <div class="wash-1"></div>
+    <div class="wash-2"></div>
+    <canvas id="bgCanvas"></canvas>
 
-  <section class="container pricing">
-    <div class="plan">
-      <h3>AMATEUR</h3>
-      <div class="price">$4.99</div>
-      <div class="period">per week</div>
-      <div class="desc">Full unrestricted access — 7 days of pure power</div>
-      <ul class="features">
-        <li>Supports every feature</li>
-        <li>Premium performance</li>
-        <li>Fast execution speed</li>
-        <li>Minimal injection speed</li>
-        <li>Clients Manager</li>
-      </ul>
-      <a href="https://hotdogkeyz.mysellauth.com/product/isaeva" class="btn btn-primary" style="width:100%; text-align:center; padding:14px;">Purchase</a>
-    </div>
-  </section>
+    <div class="page">
 
-  <section class="benefits">
-    <div class="container">
-      <h2>Why Isaeva</h2>
-      <div class="grid">
-        <div class="benefit-card">
-          <div class="icon">📜</div>
-          <h4>100% UNC & sUNC</h4>
-          <p>Full sUNC and UNC support — all functions enabled without overhead or compromise.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="icon">⚡</div>
-          <h4>FPS Boost</h4>
-          <p>Hyperion emulation minimizes detection overhead, resulting in noticeably smoother gameplay.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="icon">🔔</div>
-          <h4>24/7 Support</h4>
-          <p>Active staff on Discord around the clock. No issue goes unresolved.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="icon">ℹ️</div>
-          <h4>Hyperion Emulation</h4>
-          <p>Isaeva accurately mirrors Hyperion’s behavior, preventing detection of any unauthorized changes.</p>
-        </div>
-        <div class="benefit-card">
-          <div class="icon">≡</div>
-          <h4>Clean Interface</h4>
-          <p>Designed for all experience levels. Intuitive navigation, zero friction from launch to execution.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- NAV -->
+        <nav class="top-nav">
+            <div class="nav-left"><span>Get</span>isaeva.vercel.app</div>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="https://discord.gg/GSt3rwUkzB" target="_blank" class="nav-link">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0775.0093c.1201.099.246.1972.3728.2914a.077.077 0 01-.0066.1278 12.5986 12.5986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8709-9.6739-3.5912-13.6844a.066.066 0 00-.032-.0278zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.095 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.095 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/></svg>
+                    Discord
+                </a>
+                <div class="nav-sep"></div>
+                <a href="#pricing" class="nav-link nav-cta">Purchase →</a>
+            </div>
+        </nav>
 
-  <section class="cta">
-    <div class="container">
-      <h2>Ready to dominate?</h2>
-      <p>Join thousands of exploiters already using Isaeva. Get support, updates, and community access in one place.</p>
-      <a href="https://discord.gg/GSt3rwUkzB" class="btn btn-primary">Join the Isaeva Community</a>
-    </div>
-  </section>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="label-tag">Premium Execution Engine</div>
+            <h1 class="h-title">Unleash Power.<br>Stay Invisible.</h1>
+            <p class="h-desc">
+                Whether you're new to exploiting or looking to level up,
+                Isaeva has the perfect plan for you. Stay ahead of Hyperion
+                with the world's most stable execution logic.
+            </p>
+        </section>
 
-  <footer>
-    Getisaeva.xyz © 2026 Getisaeva.xyz
-  </footer>
+        <div class="cta-row">
+            <a href="#pricing" class="btn btn-primary">Purchase Isaeva</a>
+            <div class="divider"></div>
+            <a href="https://discord.gg/GSt3rwUkzB" target="_blank" class="btn btn-ghost">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0775.0093c.1201.099.246.1972.3728.2914a.077.077 0 01-.0066.1278 12.5986 12.5986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8709-9.6739-3.5912-13.6844a.066.066 0 00-.032-.0278zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.095 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.095 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/></svg>
+                Discord
+            </a>
+        </div>
+
+        <!-- PRICING — Weekly only -->
+        <div class="pricing-section" id="pricing">
+            <div class="price-card">
+                <div class="tier-name">Amateur</div>
+                <div class="tier-price">$4.99</div>
+                <div class="tier-period">per week</div>
+                <div class="tier-desc">One week of full access</div>
+                <a href="https://hotdogkeyz.mysellauth.com/product/isaeva" target="_blank" class="buy-btn">Purchase</a>
+                <div class="feat-list">
+                    <div class="feat-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                        Supports every feature
+                    </div>
+                    <div class="feat-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                        Premium performance
+                    </div>
+                    <div class="feat-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                        Fast execution speed
+                    </div>
+                    <div class="feat-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                        Minimal injection speed
+                    </div>
+                    <div class="feat-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                        Clients Manager
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FEATURES -->
+        <section class="features-section">
+            <div class="section-label">Why Isaeva</div>
+            <h2 class="feat-h2">Built for Precision</h2>
+            <p class="feat-sub">Every component engineered for stability, invisibility, and performance.</p>
+
+            <div class="grid-container">
+                <div class="feature-node">
+                    <div class="f-icon-box">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"/></svg>
+                    </div>
+                    <h3 class="f-title">100% UNC &amp; sUNC</h3>
+                    <p class="f-text">Full sUNC and UNC support — all functions enabled without overhead or compromise.</p>
+                </div>
+                <div class="feature-node">
+                    <div class="f-icon-box">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"/></svg>
+                    </div>
+                    <h3 class="f-title">FPS Boost</h3>
+                    <p class="f-text">Hyperion emulation minimizes detection overhead, resulting in noticeably smoother gameplay.</p>
+                </div>
+                <div class="feature-node">
+                    <div class="f-icon-box">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+                    </div>
+                    <h3 class="f-title">24/7 Support</h3>
+                    <p class="f-text">Active staff on Discord around the clock. No issue goes unresolved.</p>
+                </div>
+                <div class="feature-node">
+                    <div class="f-icon-box">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    </div>
+                    <h3 class="f-title">Hyperion Emulation</h3>
+                    <p class="f-text">Isaeva accurately mirrors Hyperion's behavior, preventing detection of any unauthorized changes.</p>
+                </div>
+                <div class="feature-node">
+                    <div class="f-icon-box">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+                    </div>
+                    <h3 class="f-title">Clean Interface</h3>
+                    <p class="f-text">Designed for all experience levels. Intuitive navigation, zero friction from launch to execution.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DISCORD CTA -->
+        <section class="discord-section">
+            <h2 class="discord-h2">Ready to get started?</h2>
+            <p class="discord-p">Join thousands of exploiters already using Isaeva. Get support, updates, and community access in one place.</p>
+            <a href="https://discord.gg/GSt3rwUkzB" target="_blank" class="join-btn">
+                <svg viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0775.0093c.1201.099.246.1972.3728.2914a.077.077 0 01-.0066.1278 12.5986 12.5986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8709-9.6739-3.5912-13.6844a.066.066 0 00-.032-.0278zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.095 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.095 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/></svg>
+                Join the Isaeva Community
+            </a>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="terminal-footer">
+            <div class="footer-brand">Getisaeva.vercel.app</div>
+            <div class="footer-right">
+                <span class="footer-legal">© 2026 Getisaeva.vercel.app</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        class ParticleController {
+            constructor() {
+                this.canvas = document.getElementById('bgCanvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.pool = [];
+                this.init();
+                this.loop();
+                window.addEventListener('resize', () => this.init());
+            }
+            init() {
+                this.w = this.canvas.width = window.innerWidth;
+                this.h = this.canvas.height = window.innerHeight;
+                const count = window.innerWidth < 640 ? 55 : 100;
+                this.pool = Array.from({ length: count }, () => new Mote(this.w, this.h));
+            }
+            loop() {
+                this.ctx.clearRect(0, 0, this.w, this.h);
+                this.pool.forEach(p => { p.tick(); p.draw(this.ctx); });
+                requestAnimationFrame(() => this.loop());
+            }
+        }
+        class Mote {
+            constructor(w, h) { this.w = w; this.h = h; this.spawn(); }
+            spawn() {
+                this.x = Math.random() * this.w;
+                this.y = Math.random() * this.h;
+                this.r = Math.random() * 1.8 + 0.3;
+                this.vy = -(Math.random() * 0.28 + 0.07);
+                this.vx = (Math.random() - 0.5) * 0.09;
+                this.op = Math.random() * 0.22 + 0.04;
+                this.t = Math.random() * Math.PI * 2;
+            }
+            tick() {
+                this.y += this.vy;
+                this.x += this.vx + Math.sin(this.t) * 0.04;
+                this.t += 0.007;
+                if (this.y < -10) { this.y = this.h + 10; this.x = Math.random() * this.w; }
+            }
+            draw(ctx) {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(180, 50, 65, ${this.op})`;
+                ctx.fill();
+            }
+        }
+        document.addEventListener('DOMContentLoaded', () => new ParticleController());
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const targetId = a.getAttribute('href');
+                if (targetId.startsWith("#")) {
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
